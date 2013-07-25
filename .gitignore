@@ -1,7 +1,10 @@
-#
-*.project
+# temporary editor files
 *.swp
 *~
+
+# various IDE project files
+*.cbp
+*.project
 
 # build output files
 *.o
