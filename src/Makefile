@@ -1,5 +1,5 @@
 CC = gcc
-
+CFLAGS = -g -Wall -std=c99
 EXENAME = hi
 TARGETS = hello main
 SRCS = $(addsuffix .c,$(TARGETS))
@@ -8,13 +8,16 @@ DEPS = $(addsuffix .d,$(TARGETS))
 
 all: $(EXENAME)
 
+-include $(DEPS)
+
+deps: $(DEPS)
+objs: $(OBJS)
+
 $(EXENAME): $(OBJS)
 	$(CC) -o $(EXENAME) $(OBJS)
 
-run: $(EXENAME)
+run: exe
 	@./$(EXENAME)
-
-include $(DEPS)
 
 clean:
 	@rm -f $(DEPS) $(OBJS) $(EXENAME)
@@ -22,4 +25,7 @@ clean:
 %.d: %.c
 	$(CC) -MM $< -MP > $@
 
-.PHONY: all clean run
+%.o: %.c
+	$(CC) -o $@ -c $< $(CFLAGS)
+
+.PHONY: all clean run exe deps objs
