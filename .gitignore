@@ -5,8 +5,11 @@
 # various IDE project files
 *.cbp
 *.project
+*.depend
 
 # build output files
 *.o
 *.d
 hi
+bin/
+obj/
