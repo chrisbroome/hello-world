@@ -1,11 +1,8 @@
 #include <stdio.h>
 
-#include "hello.h"
+#include "print_cmd_args.h"
 
 int main(int argc, char* argv[]) {
-  hello();
-  for(int i = 0; i < argc; ++i) {
-    printf("%d: %s\n", i, argv[i]);
-  }
+  print_cmd_args(argc, argv);
   return 0;
 }

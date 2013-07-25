@@ -1,10 +1,11 @@
-CC = gcc
-CFLAGS = -g -Wall -std=c99
+TARGETS = print_cmd_args hello main
 EXENAME = hi
-TARGETS = hello main
-SRCS = $(addsuffix .c,$(TARGETS))
-OBJS = $(addsuffix .o,$(TARGETS))
-DEPS = $(addsuffix .d,$(TARGETS))
+
+CC     = gcc
+CFLAGS = -g -Wall -std=c99
+SRCS   = $(addsuffix .c,$(TARGETS))
+OBJS   = $(addsuffix .o,$(TARGETS))
+DEPS   = $(addsuffix .d,$(TARGETS))
 
 all: $(EXENAME)
 
